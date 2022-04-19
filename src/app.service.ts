@@ -22,8 +22,20 @@ export class AppService {
         console.log(objJson);
         if(parseInt(todoObj.status)) {
           console.log("callback Base API");
-          const baseResponse = await this.baseService.baseWorkflow_6798('http://192.168.12.122:3000/');
-          console.log(baseResponse.data);
+
+          const params = new URLSearchParams()
+          params.append('access_token', '4649-QDDJU2K3KQPVA6XYDLP6GVFDQ3L98D2RF5ZFY3UBQWB2UT4ZPT2PTX6JRWAK89MJ-EJQNRHLH8R4Q8LWAKS9UFPQXB6359R8N3ZTUKCE7S9GPT9F36LV34H37UGCXTVDW')
+          params.append('id', '630692')
+
+          const config = {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          }
+          const baseResponse = await this.baseService.baseWorkflow_Post6798('https://workflow.base.vn/extapi/v1/job/get', params, config);
+          for(let assetInfo of baseResponse.data.todos) {
+            console.log(assetInfo.result.content)
+          }
         }else {
           console.log("awaiting for complete");
         }

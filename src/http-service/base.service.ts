@@ -10,7 +10,7 @@ export class BaseService {
         return 'Base service method'
     }
 
-    async baseWorkflow_6798(url: string): Promise<any> {
-        return this.httpService.get(url).toPromise();
+    async baseWorkflow_Post6798(url: string, params, config): Promise<any> {
+        return this.httpService.post(url, params, config).toPromise();
     }
 }
