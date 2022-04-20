@@ -1,13 +1,13 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { map } from 'rxjs';
-import { BaseService } from './http-service/base.service';
+import { BaseService } from './http-service/base-api.service';
 
 @Injectable()
 export class AppService {
   constructor(
     private httpService: HttpService,
   ) {}
+
   baseService: any = new BaseService(this.httpService);
   getOrder(): string {
     return 'Test public method'
@@ -22,11 +22,7 @@ export class AppService {
         console.log(objJson);
         if(parseInt(todoObj.status)) {
           console.log("callback Base API");
-
-          const params = new URLSearchParams()
-          params.append('access_token', '4649-QDDJU2K3KQPVA6XYDLP6GVFDQ3L98D2RF5ZFY3UBQWB2UT4ZPT2PTX6JRWAK89MJ-EJQNRHLH8R4Q8LWAKS9UFPQXB6359R8N3ZTUKCE7S9GPT9F36LV34H37UGCXTVDW')
-          params.append('id', '630692')
-
+          const params = this.getRequestParams(data.id);
           const config = {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
@@ -44,6 +40,13 @@ export class AppService {
       console.log("no todos to process")
     }
     return;
+  }
+
+  getRequestParams(workflowId: any) {
+    const params = new URLSearchParams();
+    params.append('access_token', '4649-QDDJU2K3KQPVA6XYDLP6GVFDQ3L98D2RF5ZFY3UBQWB2UT4ZPT2PTX6JRWAK89MJ-EJQNRHLH8R4Q8LWAKS9UFPQXB6359R8N3ZTUKCE7S9GPT9F36LV34H37UGCXTVDW');
+    params.append('id', workflowId);
+    return params;
   }
   getHello(): string {
     return 'Hello World!';

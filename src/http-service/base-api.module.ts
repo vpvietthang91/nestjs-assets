@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common'
-import { BaseService } from './base.service';
+import { BaseService } from './base-api.service';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({

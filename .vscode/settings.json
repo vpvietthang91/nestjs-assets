@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "skywalk3r-db",
+            "group": "Server",
+            "database": "pac_db",
+            "username": "skywalk3r",
+            "password": "Matkhaucap10!"
+        }
+    ]
+}
