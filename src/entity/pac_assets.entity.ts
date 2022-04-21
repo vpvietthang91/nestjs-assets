@@ -40,18 +40,27 @@ export class pac_assets {
     @Column()
     check_io: string;
 
-    @Column({ default: false })
-    is_deleted: boolean;
-
     @Column()
     created_by: string;
 
     @Column()
     created_date: Date;
 
-    //@Column()
-    //update_by: string;
+    @Column({ default: false })
+    is_deleted: boolean;
 
-    //@Column()
-    //update_date: Date;
+    @Column()
+    department: string;
+
+    @Column()
+    direct_manager: string;
+
+    @Column()
+    check_io_date: Date;
+
+    @Column()
+    update_by: string;
+
+    @Column()
+    update_date: Date;
 }

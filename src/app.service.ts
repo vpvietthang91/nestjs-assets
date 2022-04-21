@@ -22,7 +22,7 @@ export class AppService {
         console.log(objJson);
         if(parseInt(todoObj.status)) {
           console.log("callback Base API");
-          const params = this.getRequestParams(data.id);
+          const params = this.getRequestParamsWorkflow(data.id);
           const config = {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
@@ -42,11 +42,17 @@ export class AppService {
     return;
   }
 
-  getRequestParams(workflowId: any) {
+  getRequestParamsWorkflow(workflowId: any) {
     const params = new URLSearchParams();
     params.append('access_token', '4649-QDDJU2K3KQPVA6XYDLP6GVFDQ3L98D2RF5ZFY3UBQWB2UT4ZPT2PTX6JRWAK89MJ-EJQNRHLH8R4Q8LWAKS9UFPQXB6359R8N3ZTUKCE7S9GPT9F36LV34H37UGCXTVDW');
     params.append('id', workflowId);
     return params;
+  }
+
+  getRequestParamsAccount(username: any) {
+    const params = new URLSearchParams();
+    params.append('access_token', '4649-PGTQ5TBFKMBB4U8GM7EMWMRK3VNJ2MLEF7W2BNQVDV6TB4Z4K2C87QTJYXP3ZG9Z-REUYZYTAQN6H4NV5LCLN9URB8JTNK9WFBUPDRE7DUSQRNCQ8YXX86NJMY9KHDX58');
+    params.append('username', username)
   }
   getHello(): string {
     return 'Hello World!';

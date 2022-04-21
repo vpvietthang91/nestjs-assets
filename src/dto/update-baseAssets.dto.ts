@@ -1,19 +1,20 @@
 import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import { IsNotEmpty, IsString } from "class-validator";
 
-export class CreateBaseAssetsDto {
+export class UpdateBaseAssetsDto {
     @ApiProperty()
     @IsNotEmpty()
+    id: number;
+
+    @ApiPropertyOptional()
     @IsString()
     assets_name: string;
 
-    @ApiProperty()
-    @IsNotEmpty()
+    @ApiPropertyOptional()
     @IsString()
     serial: string;
 
-    @ApiProperty()
-    @IsNotEmpty()
+    @ApiPropertyOptional()
     @IsString()
     assets_code: string;
 
@@ -25,10 +26,7 @@ export class CreateBaseAssetsDto {
 
     @ApiPropertyOptional()
     assets_status: number;
-
-    //@ApiPropertyOptional()
-    //assets_description: string;
-
+    
     @ApiPropertyOptional()
     @IsString()
     assets_tag: string;
@@ -37,19 +35,12 @@ export class CreateBaseAssetsDto {
     @IsString()
     checkout_to: string;
 
-    //@ApiPropertyOptional()
-    //@IsString()
-    //assets_image: string;
+    @ApiPropertyOptional()
+    checkout_date: Date;
 
     @ApiPropertyOptional()
     @IsString()
     check_io: string;
-
-    @ApiPropertyOptional()
-    created_by: string;
-
-    @ApiPropertyOptional()
-    created_date: Date;
 
     @ApiPropertyOptional()
     is_deleted: boolean;
@@ -61,11 +52,8 @@ export class CreateBaseAssetsDto {
     direct_manager: string;
 
     @ApiPropertyOptional()
-    check_io_date: Date;
+    update_by: string;
 
-    //@ApiPropertyOptional()
-    //update_by: string;
-
-    //@ApiPropertyOptional()
-    //update_date: Date;
+    @ApiPropertyOptional()
+    update_date: Date;
 }
