@@ -46,7 +46,7 @@ export class AppService {
                 itemAsset.checkout_date = new Date;
                 itemAsset.check_io = "out";
                 itemAsset.department = baseResponse.data.job.form[2].value;
-                console.log(itemAsset);
+                console.log("Update form: "+itemAsset);
                 this.assetsManagementService.updateAsset(itemAsset);
                 console.log("Updated asset with assets code: "+i[1]);
               }else {

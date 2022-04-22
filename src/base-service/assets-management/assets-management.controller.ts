@@ -10,7 +10,7 @@ export class AssetsManagementController {
     constructor(private readonly assetsManagementService: AssetsManagementService) {}
 
     @Post('/createAsset')
-    async createScript(@Body() post: CreateBaseAssetsDto): Promise<pac_assets> {
+    async createAsset(@Body() post: CreateBaseAssetsDto): Promise<pac_assets> {
         return this.assetsManagementService.createAsset(post);
     }
 

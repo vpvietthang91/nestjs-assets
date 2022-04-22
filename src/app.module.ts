@@ -6,7 +6,6 @@ import { AssetsManagementModule } from './base-service/assets-management/assets-
 import { DatabaseModule } from './database-service/database.module';
 import { AccessoriesManagementModule } from './base-service/accessories-management/accessories-management.module';
 import { BaseModule } from './http-service/base-api.module';
-import { pac_assets } from './entity/pac_assets.entity';
 import { AssetsManagementProviders } from './base-service/assets-management/assets-management.providers';
 
 @Module({

@@ -15,32 +15,32 @@ export class AccessoriesManagementController {
     }
 
     @Get('/findAll')
-    async findAllAssets(): Promise<pac_accessories[]> {
+    async findAllAccessories(): Promise<pac_accessories[]> {
         return await this.accessoriesManagementService.findAll();
     }
 
     @Get('/findAccessoriesById/:id')
-    async findAssetByid(@Param('id', new ParseIntPipe({errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE})) id: number): Promise<pac_accessories> {
+    async findAccessoriesByid(@Param('id', new ParseIntPipe({errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE})) id: number): Promise<pac_accessories> {
         return this.accessoriesManagementService.findById(id);
     }
 
     @Get('/findAccessoriesBySerial')
-    async findAssetBySerial(@Query('serial') serial: string): Promise<pac_accessories> {
+    async findAccessoriesBySerial(@Query('serial') serial: string): Promise<pac_accessories> {
         return this.accessoriesManagementService.findBySerial(serial);
     }
 
     @Get('/findAccessoriesByCode')
-    async findAssetByCode(@Query('code') code: string): Promise<pac_accessories> {
+    async findAccessoriesByCode(@Query('code') code: string): Promise<pac_accessories> {
         return this.accessoriesManagementService.findByCode(code);
     }
 
     @Put('/updateAccessories')
-    async updateAsset(@Body() put: UpdateBaseAccessoriesDto): Promise<pac_accessories> {
+    async updateAccessories(@Body() put: UpdateBaseAccessoriesDto): Promise<pac_accessories> {
         return this.accessoriesManagementService.updateAccessories(put);
     }
 
     @Put('/deleteAccessories/:id')
-    async deleteAsset(@Param('id', new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE})) id: number, @Res({passthrough: true}) res: Response): Promise<any> {
+    async deleteAccessories(@Param('id', new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE})) id: number, @Res({passthrough: true}) res: Response): Promise<any> {
         const result = await this.accessoriesManagementService.deleteAccessories(id);
         res.status(HttpStatus.OK).json({
             message: "Deleted"+result,
