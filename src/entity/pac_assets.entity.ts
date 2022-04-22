@@ -58,9 +58,9 @@ export class pac_assets {
     @Column()
     check_io_date: Date;
 
-    @Column()
-    update_by: string;
+    // @Column()
+    // update_by: string;
 
-    @Column()
-    update_date: Date;
+    // @Column()
+    // update_date: Date;
 }

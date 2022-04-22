@@ -40,7 +40,7 @@ export class AssetsManagementService {
 
     async findByCode(code: string): Promise<pac_assets> {
         try {
-            const asset = await this.pacAssets.createQueryBuilder("asset").where("asset.asset_code = codeFind", {codeFind: code}).getOne();
+            const asset = await this.pacAssets.createQueryBuilder("asset").where("asset.assets_code = :codeFind", {codeFind: code}).getOne();
             return asset;
         }catch(err) {
             throw err;
@@ -65,8 +65,8 @@ export class AssetsManagementService {
         updateAsset.department = put.department;
         updateAsset.direct_manager = put.direct_manager;
         updateAsset.check_io_date = new Date;
-        updateAsset.update_by = put.update_by;
-        updateAsset.update_date = new Date;
+        //updateAsset.update_by = put.update_by;
+        //updateAsset.update_date = new Date;
 
         return this.pacAssets.save(updateAsset);
     }
